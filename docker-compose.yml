@@ -1,0 +1,28 @@
+version: "3.8"
+ 
+services:
+  neo4j:
+    image: neo4j:5.20-community
+    container_name: dressme-neo4j
+    ports:
+      - "7474:7474"   # HTTP / Browser UI
+      - "7687:7687"   # Bolt (driver Python)
+    environment:
+      # Auth : user/password (change-le pour la prod)
+      NEO4J_AUTH: neo4j/dressme123
+      # Mémoire raisonnable pour M1/M4
+      NEO4J_server_memory_heap_initial__size: 512m
+      NEO4J_server_memory_heap_max__size: 1G
+      NEO4J_server_memory_pagecache_size: 512m
+      # APOC plugin (utile pour requêtes avancées)
+      NEO4J_PLUGINS: '["apoc"]'
+      NEO4J_dbms_security_procedures_unrestricted: apoc.*
+    volumes:
+      - neo4j_data:/data
+      - neo4j_logs:/logs
+    restart: unless-stopped
+ 
+volumes:
+  neo4j_data:
+  neo4j_logs:
+ 

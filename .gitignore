@@ -1,0 +1,14 @@
+# Bases de données vectorielles
+data/chroma_db/
+src/data/chroma_db/
+
+# Environnements virtuels
+.venv/
+.venv-new/
+
+# Python
+__pycache__/
+*.pyc
+
+# Secrets
+.env

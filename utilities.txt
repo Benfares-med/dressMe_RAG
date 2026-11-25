@@ -1,0 +1,267 @@
+MATCH p=(s:Style)-[r]-(x)
+RETURN p
+LIMIT 100;
+
+question 1 : 
+
+Qu'est-ce que le style Old Money et quelles pièces permettent de créer ce style ?
+
+question 2 : 
+
+Propose une tenue Old Money pour un mariage et précise les couleurs et les pièces.
+
+question 3 : 
+
+Compare Old Money et Minimalist pour un entretien en hiver, puis construis une tenue complète avec accessoires.
+
+
+TEST DE LIMITES : 
+
+Test 1 : question descriptive simple
+Qu’est-ce que le style Old Money et quelles sont ses pièces principales ?
+
+Test 2 : question relationnelle complexe
+Compare Old Money et Minimalist pour un entretien en hiver. Indique les vêtements, les couleurs et le style le plus adapté.
+
+Test 3 : mémoire conversationnelle
+Pose successivement :
+Je préfère les couleurs noir et beige, le style minimaliste et un budget limité.
+Puis :
+Propose-moi maintenant une tenue complète pour un entretien.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+MATCH p=(s:Style {name: "Old Money"})-[r]-(x)
+RETURN p;
+
+
+MATCH (n)
+RETURN labels(n)[0] AS type, count(n) AS total
+ORDER BY total DESC;
+
+
+**Speech de présentation, 10 minutes**
+
+## 1. Introduction, 1 minute
+
+> Bonjour. Je vais présenter DressMe AI, un chatbot styliste basé sur trois architectures de Retrieval-Augmented Generation.
+>
+> La première est un RAG classique, qui récupère des passages depuis une base vectorielle ChromaDB.
+>
+> La deuxième est Graph RAG, qui combine ChromaDB avec un graphe de connaissances Neo4j.
+>
+> La troisième est Agentic RAG, où plusieurs agents spécialisés planifient, recherchent, génèrent et vérifient la réponse.
+>
+> Je vais tester la même application avec ces trois approches pour montrer progressivement leur différence.
+
+---
+
+## 2. Architecture générale, 1 minute
+
+> Les connaissances initiales sont dans le fichier `fashion_styles.txt`. Il contient des descriptions de styles comme Streetwear, Old Money, Minimaliste ou Bohème.
+>
+> ChromaDB stocke les documents sous forme de vecteurs pour effectuer une recherche sémantique.
+>
+> Neo4j représente les connaissances sous forme d’entités et de relations : un style utilise certains vêtements, possède certaines couleurs, correspond à des occasions et à des saisons.
+>
+> Enfin, Groq avec le modèle Llama génère la réponse en langage naturel à partir du contexte récupéré.
+
+---
+
+## 3. RAG classique, 2 minutes
+
+### Démonstration
+
+Dans Streamlit, sélectionne **RAG classique** et pose :
+
+```text
+Qu'est-ce que le style Old Money et quelles pièces permettent de créer ce style ?
+```
+
+### Speech
+
+> Dans le RAG classique, la question est d’abord transformée en vecteur avec le modèle d’embeddings multilingue MiniLM.
+>
+> ChromaDB compare ce vecteur avec les 30 fragments déjà indexés et récupère les quatre passages les plus proches.
+>
+> Ces passages sont ensuite placés dans un prompt avec la question. Groq génère finalement la réponse en utilisant uniquement ce contexte.
+>
+> Dans l’interface, je peux ouvrir “Voir le contexte utilisé” pour vérifier les sources récupérées.
+>
+> L’avantage est que cette architecture est simple, rapide et adaptée aux questions descriptives.
+>
+> Sa limite est que les relations entre les informations restent implicites dans le texte. Il devient plus difficile de répondre précisément à une question combinant un style, une occasion, une couleur et une saison.
+
+### Ce qu’il faut montrer
+
+- La réponse générée.
+- Les sources dans **Voir le contexte utilisé**.
+- Le fichier `fashion_styles.txt`.
+- La base `data/chroma_db`.
+
+---
+
+## 4. Graph RAG, 2 minutes 30
+
+### Visualisation dans Neo4j
+
+Dans Neo4j Browser, exécute :
+
+```cypher
+MATCH p=(s:Style)-[r]-(x)
+RETURN p
+LIMIT 100;
+```
+
+Pour cibler Old Money :
+
+```cypher
+MATCH p=(s:Style {name: "Old Money"})-[r]-(x)
+RETURN p;
+```
+
+Pour afficher les statistiques :
+
+```cypher
+MATCH (n)
+RETURN labels(n)[0] AS type, count(n) AS total
+ORDER BY total DESC;
+```
+
+### Speech
+
+> Pour améliorer le raisonnement, j’ai construit un graphe de connaissances avec Neo4j.
+>
+> Chaque style est représenté par un nœud. Il est connecté à des vêtements, des couleurs, des occasions, des saisons, des marques et d’autres styles.
+>
+> Par exemple, le style Old Money est relié à des pièces comme le blazer et les mocassins, à des couleurs comme le beige et le navy, et à des occasions comme un mariage.
+>
+> Le Graph RAG utilise deux mécanismes de recherche. Premièrement, ChromaDB récupère les passages sémantiquement proches. Deuxièmement, Neo4j récupère les faits structurés et les relations correspondant aux mots-clés.
+>
+> Les passages vectoriels et les faits du graphe sont ensuite fusionnés dans le prompt envoyé au modèle.
+>
+> Les faits Neo4j sont prioritaires pour les informations objectives, tandis que les documents textuels apportent les descriptions et l’inspiration.
+
+### Démonstration chatbot
+
+Sélectionne **Graph RAG** et pose :
+
+```text
+Propose une tenue Old Money pour un mariage et précise les couleurs et les pièces.
+```
+
+Puis ouvre **Voir le contexte utilisé**.
+
+### Speech après la réponse
+
+> L’interface montre les mots-clés détectés, les passages provenant de ChromaDB et les faits récupérés depuis Neo4j.
+>
+> Contrairement au RAG classique, je peux donc expliquer exactement quelles relations ont été utilisées pour produire la recommandation.
+>
+> Cette approche est plus adaptée aux questions relationnelles, par exemple rechercher les styles compatibles avec une occasion ou comparer les couleurs de plusieurs styles.
+
+---
+
+## 5. Agentic RAG, 2 minutes 30
+
+### Question de démonstration
+
+Sélectionne **Agentic RAG** et pose :
+
+```text
+Compare Old Money et Minimalist pour un entretien en hiver, puis construis une tenue complète avec accessoires.
+```
+
+### Speech
+
+> La troisième version est l’Agentic RAG. Ici, le traitement n’est plus réalisé par une chaîne fixe, mais par plusieurs agents spécialisés orchestrés avec LangGraph.
+>
+> Le Planner Agent analyse d’abord la demande. Il identifie l’intention, la complexité, les styles ciblés, l’occasion et la saison. Il décide ensuite quelles sources doivent être interrogées.
+>
+> Le Vector Agent recherche les passages pertinents dans ChromaDB.
+>
+> Le Graph Agent interroge Neo4j pour récupérer les relations entre les styles, les vêtements, les couleurs, l’occasion et la saison.
+>
+> L’Outfit Agent fusionne les résultats et construit une recommandation complète.
+>
+> Pour les demandes complexes, le Critic Agent vérifie la cohérence de la réponse et fournit un score, les éventuels problèmes et des pistes d’amélioration.
+>
+> Enfin, le Memory Manager conserve les préférences détectées pendant la conversation.
+
+### Ce qu’il faut montrer
+
+Ouvre **Voir le workflow agentique** et montre :
+
+- Le plan d’exécution.
+- Les agents utilisés.
+- La trace complète des étapes.
+- Les faits Neo4j.
+- Les passages ChromaDB.
+- Le score du Critic Agent.
+- La mémoire mise à jour.
+
+### Speech pendant la visualisation
+
+> Ici, nous pouvons visualiser tout le raisonnement opérationnel du système.
+>
+> Le Planner a classé la question comme complexe. Il a activé la recherche vectorielle et la recherche graphe, puis l’Outfit Agent a produit la tenue.
+>
+> Comme il s’agit d’une comparaison avec plusieurs contraintes, le Critic Agent a également vérifié la cohérence finale.
+>
+> Cette traçabilité permet de comprendre quels agents ont travaillé et quelles données ont été utilisées.
+
+---
+
+## 6. Conclusion, 1 minute
+
+> Pour conclure, les trois versions répondent à des besoins différents.
+>
+> Le RAG classique est simple et efficace pour rechercher des informations dans des documents.
+>
+> Le Graph RAG ajoute une représentation structurée des relations, ce qui améliore les questions combinant styles, pièces, couleurs, saisons et occasions.
+>
+> L’Agentic RAG ajoute une orchestration dynamique. Il planifie les actions, choisit les sources, construit la réponse, la vérifie et mémorise les préférences.
+>
+> Cette implémentation montre donc une évolution progressive : document retrieval, raisonnement relationnel, puis orchestration multi-agents.
+
+## Commandes avant la présentation
+
+```bash
+cd /Users/mohammedbenakkaouayad/Desktop/Master/S2/RO/RAG/Dressme_Rag_Impl/dressme_rag_niveau1
+
+open -a Docker
+docker compose up -d
+
+./.venv/bin/python scripts/build_graph.py --no-llm
+
+./.venv/bin/python -m streamlit run app/streamlit_app.py --server.port 8502
+```
+
+Interfaces :
+
+```text
+Chatbot : http://localhost:8502
+Neo4j  : http://localhost:7474
+```
+
+Identifiants Neo4j :
+
+```text
+Username : neo4j
+Password : dressme123
+Database : neo4j
+```

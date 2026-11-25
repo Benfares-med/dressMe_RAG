@@ -1,0 +1,71 @@
+STYLE: Streetwear
+Description: Le streetwear est un style urbain né dans les années 80 aux États-Unis, influencé par la culture hip-hop, le skateboard et le sport. Il est décontracté, expressif et souvent coloré.
+Vêtements clés: Oversized hoodie, t-shirt graphique, jogger, cargo pants, bomber jacket, jersey
+Chaussures: Sneakers (Nike Air Force, Jordan, Adidas Yeezy, New Balance)
+Couleurs: Blanc, noir, gris, avec accents vifs (rouge, orange, vert néon)
+Accessoires: Casquette snapback, bonnet, sac à dos, chaîne
+Occasions: Quotidien, sorties entre amis, concerts, université
+Marques: Supreme, Off-White, Nike, Adidas, Palace, Stüssy
+
+STYLE: Old Money
+Description: Le style Old Money évoque la richesse discrète et héritée. Il est sobre, élégant et intemporel, inspiré de l'aristocratie américaine et européenne. Pas d'ostentation, juste de la qualité.
+Vêtements clés: Blazer en tweed, polo Ralph Lauren, chino beige, chemise Oxford, pull en cachemire, manteau en laine
+Chaussures: Loafers, mocassins, Oxford shoes, boat shoes
+Couleurs: Beige, camel, navy, blanc cassé, bordeaux, vert forêt
+Accessoires: Montre discrète, ceinture cuir, lunettes écaille
+Occasions: Sorties élégantes, dîners, vacances, université
+Marques: Ralph Lauren, Brooks Brothers, Loro Piana, Barbour
+
+STYLE: Casual Chic
+Description: Le casual chic mélange confort et élégance. Il convient à de nombreuses occasions et est facile à porter au quotidien tout en restant raffiné.
+Vêtements clés: Blazer, jean slim, chemise blanche, blouse fluide, robe midi, trench coat
+Chaussures: Mocassins, bottines, sneakers blanches, mules
+Couleurs: Neutres (blanc, beige, gris, noir) avec touches de couleur
+Accessoires: Sac structuré, écharpe en soie, bijoux fins
+Occasions: Travail décontracté, déjeuner, shopping, voyages
+Marques: Zara, Mango, & Other Stories, Cos
+
+STYLE: Cottagecore
+Description: Le cottagecore célèbre une esthétique romantique rurale inspirée de la vie à la campagne. Il est doux, naturel et nostalgique.
+Vêtements clés: Robe fleurie, jupe longue, chemisier brodé, cardigan, tablier
+Chaussures: Bottines en cuir, Mary Janes, sandales plates
+Couleurs: Tons pastel, blanc crème, vert sauge, lavande, terracotta
+Accessoires: Chapeau de paille, panier en osier, fleurs dans les cheveux
+Occasions: Promenades, pique-niques, événements champêtres, week-ends
+Marques: Free People, Anthropologie, Rouje, Reformation
+
+STYLE: Minimaliste
+Description: Le minimalisme est une approche épurée de la mode. Moins c'est plus. On privilégie la qualité, la coupe et les basiques intemporels.
+Vêtements clés: T-shirt blanc basique, pantalon droit, robe simple, manteau camel
+Chaussures: Sneakers blanches, mocassins, bottines simples
+Couleurs: Noir, blanc, beige, gris, crème
+Accessoires: Rares et choisis avec soin — montre, sac simple
+Occasions: Toutes occasions selon les pièces choisies
+Marques: COS, Toteme, Uniqlo, Arket, The Row
+
+STYLE: Y2K
+Description: Le style Y2K revival s'inspire de l'esthétique des années 2000 : brillant, coloré, futuriste et parfois kitsch.
+Vêtements clés: Top crop, pantalon taille basse, mini-jupe, veste en vinyle, ensemble coordonné
+Chaussures: Mules à plateforme, bottes chunky, sandales à strass
+Couleurs: Rose bubblegum, violet, argent, holographique
+Accessoires: Lunettes papillon, mini sac, bandeau
+Occasions: Soirées, festivals, sorties nocturnes
+Marques: GCDS, Blumarine, Versace Jeans Couture, Urban Outfitters
+
+STYLE: Bohème
+Description: Le style bohème s'inspire des cultures du monde, du mouvement hippie et de l'art. Il est libre, naturel et expressif.
+Vêtements clés: Robe longue, kimono, jupe évasée, blouse imprimée, gilet à franges
+Chaussures: Sandales plates, bottines western, espadrilles
+Couleurs: Terracotta, ocre, blanc, brun, turquoise
+Accessoires: Bijoux ethniques, sac en cuir tressé, chapeau western
+Occasions: Festivals, voyages, plage, soirées décontractées
+Marques: Free People, Isabel Marant, Antik Batik
+
+STYLE: Elegant / Formel
+Description: Le style élégant est pensé pour les grandes occasions. Il exige soin, précision et raffinement.
+Vêtements clés: Costume, robe de soirée, tailleur pantalon, chemise habillée, cravate
+Chaussures: Escarpins, derbies, richelieus
+Couleurs: Noir, navy, blanc, bordeaux, champagne
+Accessoires: Pochette, montre de luxe, bijoux discrets
+Occasions: Mariages, galas, dîners formels, cérémonies
+Marques: Hugo Boss, Sandro, The Kooples, Dior, Saint Laurent
